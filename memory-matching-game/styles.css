@@ -1,0 +1,31 @@
+body {
+    background-color: #04192a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-family: monospace;
+    font-size: 30px;
+    height: 90vh;
+    position: relative;
+  }
+
+table {
+    font-size: 30px;
+    width: 280px;
+    height: 280px;
+}
+
+h1 {
+    margin-bottom: 0px;
+}
+
+td {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(250, 250, 250, 0.1);
+    text-align: center;
+    border-radius: 4px;
+}
