@@ -1,22 +1,26 @@
-const emojis = ['🍌', '🍌', '🍇', '🍇', '🍎', '🍎', '🥭', '🥭', '🍉', '🍉', '🍈', '🍈', '🍊', '🍊', '🍐', '🍐'];
+// TODO u could generate this list with just a list of every emoji once
+const emojis = [
+  "🍌",
+  "🍌",
+  "🍇",
+  "🍇",
+  "🍎",
+  "🍎",
+  "🥭",
+  "🥭",
+  "🍉",
+  "🍉",
+  "🍈",
+  "🍈",
+  "🍊",
+  "🍊",
+  "🍐",
+  "🍐",
+];
 const selectedItems = [];
-const cellOne = document.getElementById("cell1");
-const cellTwo = document.getElementById("cell2");
-const cellThree = document.getElementById("cell3");
-const cellFour = document.getElementById("cell4");
-const cellFive = document.getElementById("cell5");
-const cellSix = document.getElementById("cell6");
-const cellSeven = document.getElementById("cell7");
-const cellEight = document.getElementById("cell8");
-const cellNine = document.getElementById("cell9");
-const cellTen = document.getElementById("cell10");
-const cellEleven = document.getElementById("cell11");
-const cellTwelve = document.getElementById("cell12");
-const cellThirteen = document.getElementById("cell13");
-const cellFourteen = document.getElementById("cell14");
-const cellFifteen = document.getElementById("cell15");
-const cellSixteen = document.getElementById("cell16");
-
+let openCards = [];
+let completedSets = 0;
+let tries = 0;
 
 // Loop until the original array is empty
 while (emojis.length > 0) {
@@ -30,20 +34,92 @@ while (emojis.length > 0) {
   selectedItems.push(selectedItem);
 }
 
-console.log(selectedItems)
+// check if there is clieck on item that isn'nt completed yet
+// check if item is open yet => abort
+// show item
 
-cellOne.addEventListener("click", function() {
-    cellOne.textContent = selectedItems[1];
-}); 
-cellTwo.addEventListener("click", function() {
-    cellTwo.textContent = selectedItems[2];
-}); 
-cellThree.addEventListener("click", function() {
-    cellThree.textContent = selectedItems[3];
-}); 
-cellFour.addEventListener("click", function() {
-    cellFour.textContent = selectedItems[4];
-}); 
-cellFive.addEventListener("click", function() {
-    cellFive.textContent = selectedItems[5];
-}); 
+// check if 2 ites are open
+// check if they are the same => mark as comeplete
+
+const betterListener = (event) => {
+  let target = event.target;
+
+  if (target.hasAttribute("completed")) return;
+
+  if (openCards.find((openCardId) => openCardId === target.id)) return;
+
+  target.textContent = selectedItems[target.id];
+
+  if (openCards.length > 1) {
+    let openCardA = document.getElementById(openCards[0]);
+    let openCardB = document.getElementById(openCards[1]);
+
+    tries++;
+
+    if (openCardA.textContent === openCardB.textContent) {
+      openCardA.setAttribute("completed", "");
+      openCardB.setAttribute("completed", "");
+      completedSets++;
+    } else {
+      openCardA.textContent = "";
+      openCardB.textContent = "";
+    }
+
+    openCards = [];
+  }
+
+  openCards.push(target.id);
+
+  console.log({ completedSets, tries });
+
+  if (completedSets > 7) {
+    alert(`You completed the game in ${tries} and in `);
+    // TODO add timer
+    // TODO add reset function
+  }
+};
+
+document.getElementById("game-table").addEventListener("click", betterListener);
+
+// original code:
+
+// document
+//   .getElementById("game-table")
+//   .addEventListener("click", function (event) {
+//     let target = event.target; // Get the element that was clicked
+
+//     // Check if the clicked element is a table cell (td)
+//     if (
+//       target.tagName === "TD" &&
+//       !target.hasAttribute("completed") &&
+//       openCards[0] !== target.id &&
+//       openCards[1] !== target.id
+//     ) {
+//       //Make the textContent of the clicked Item the emoji from selectedItems array
+//       if (openCards.length > 1) {
+//         // two cards are open, we compare
+
+//         let openCardA = document.getElementById(openCards[0]);
+//         let openCardB = document.getElementById(openCards[1]);
+
+//         if (openCardA.textContent === openCardB.textContent) {
+//           openCardA.setAttribute("completed", "");
+//           openCardB.setAttribute("completed", "");
+
+//           openCards.length = 0;
+//           completedSets = completedSets + 1;
+//         } else {
+//           openCardA.textContent = "";
+//           openCardB.textContent = "";
+//           openCards.length = 0;
+//         }
+//       }
+
+//       openCards.push(target.id);
+//       target.textContent = selectedItems[target.id];
+
+//       if (completedSets > 6) {
+//         alert("You won!");
+//       }
+//     }
+//   });
