@@ -148,7 +148,7 @@ body {
 }
 
 .winning-message button:hover {
-  background-color: black;
+  background-color:  rgb(175, 142, 142);
   color: white;
   border-color: white;
 }
@@ -156,3 +156,11 @@ body {
 .winning-message.show {
   display: flex;
 }
+h1 {
+  margin-top: -600px;
+  margin-bottom: 100px;
+}
+a {
+  margin-right: 1200px;
+  margin-bottom: 650px;
+  }
