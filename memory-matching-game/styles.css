@@ -9,7 +9,15 @@ body {
   font-family: monospace;
   font-size: 30px;
   height: 90vh;
-  position: relative;
+}
+
+.back-to-home {
+  color: white;
+  position: fixed;
+  top: 1%;
+  left: 2%;
+  text-decoration: none;
+  font-size: 2vw;
 }
 
 table {
@@ -35,21 +43,80 @@ h3 {
 }
 
 .explanation {
-  background-color: gray;
-  position: fixed;
-  z-index: 2;
+  background-color: #2e5778;
   border-radius: 0.75%;
-  top: 30%;
-  right: 25%;
-  bottom: 30%;
-  width: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 700px) {
+  .explanation {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .explanation {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .explanation-title {
   margin-left: 5%;
+  margin-right: 5%;
+  font-size: 5vw;
 }
 
 .explanation-text {
   margin-left: 5%;
   margin-right: 5%;
+  font-size: 3vw;
+}
+
+.explanation-button {
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: 10em;
+}
+
+.explanation-button:hover,
+.explanation-button:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.explanation-button:hover {
+  transform: translateY(-1px);
 }

@@ -29,9 +29,11 @@ document
   .addEventListener("click", startGame);
 
 function startGame() {
-  document.getElementById("explanation").setAttribute("hidden", "true");
+  document.getElementById("explanation").style.visibility = "hidden";
+  document.getElementById("explanation-button").style.visibility = "hidden";
   document.getElementById("timer").removeAttribute("hidden");
   document.getElementById("game-div").removeAttribute("hidden");
+  document.getElementById("title").removeAttribute("hidden");
   startTimer();
 }
 

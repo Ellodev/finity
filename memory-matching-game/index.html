@@ -3,20 +3,23 @@
   <head>
     <link rel="stylesheet" href="styles.css" />
     <title>finity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
+    <a href="/index.html" class="back-to-home">&lt;- go back</a>
     <div class="container">
-      <h1 class="title">Memory Matching Game</h1>
-      <a href="/index.html">go back</a>
+      <h1 class="title" id="title" hidden>Memory Matching Game</h1>
       <div class="explanation" id="explanation">
         <h3 class="explanation-title">A Quick Explanation</h3>
-        <p class="explanation-text">The goal is to complete the game in as little tries as possible. 
-        </br>
-        You click on one of the cards in the Table. After that you click on a second one.
-        </br>
-        If both are the same emoji, you get one set. The location of the emojis stays the same.
+        <p class="explanation-text">
+          The goal is to complete the game in as little tries as possible. You
+          click on one of the cards in the Table. After that you click on a
+          second one. If both are the same emoji, you get one set. The location
+          of the emojis stays the same.
         </p>
-        <button class="explanation-button" id="explanation-button">Ok, thanks!</button>
+        <button class="explanation-button" id="explanation-button">
+          Ok, thanks!
+        </button>
       </div>
       <p id="timer" hidden></p>
       <div class="game-div" id="game-div" hidden>
