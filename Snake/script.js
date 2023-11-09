@@ -142,27 +142,33 @@ function checkAppleCollision(){
 
 document.body.addEventListener("keydown", keyDown);
 
+document.body.addEventListener("keydown", keyDown);
+
 function keyDown(event) {
-    switch (event.keyCode) {
-        case 38: // Up
+    switch (event.key) {
+        case "w":
+        case "ArrowUp": // Up
             if (yVelocity !== 1) {
                 yVelocity = -1;
                 xVelocity = 0;
             }
             break;
-        case 40: // Down
+        case "s":
+        case "ArrowDown": // Down
             if (yVelocity !== -1) {
                 yVelocity = 1;
                 xVelocity = 0;
             }
             break;
-        case 37: // Left
+        case "a":
+        case "ArrowLeft": // Left
             if (xVelocity !== 1) {
                 yVelocity = 0;
                 xVelocity = -1;
             }
             break;
-        case 39: // Right
+        case "d":
+        case "ArrowRight": // Right
             if (xVelocity !== -1) {
                 yVelocity = 0;
                 xVelocity = 1;
