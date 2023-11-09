@@ -63,7 +63,7 @@ h3 {
   }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1920px) {
   .explanation {
     left: 50%;
     top: 50%;
@@ -74,13 +74,15 @@ h3 {
 .explanation-title {
   margin-left: 5%;
   margin-right: 5%;
-  font-size: 5vw;
+  font-size: 3vw;
+  margin-bottom: 0%;
 }
 
 .explanation-text {
   margin-left: 5%;
   margin-right: 5%;
-  font-size: 3vw;
+  font-size: 2vw;
+  text-align: center;
 }
 
 .explanation-button {
