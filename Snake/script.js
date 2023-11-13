@@ -92,9 +92,9 @@ function isGameOver(){
 }
 
 function drawScore(){
-    ctx.fillstyle = 'white';
-    ctx.font = "10px Verdana";
-    ctx.fillText("Score:" + score, canvas.width-50, 10);
+    ctx.fillStyle = 'white';
+    ctx.font = "15px Verdana";
+    ctx.fillText("Score:" + score, canvas.width-90, 30);
 }
 
 function clearScreen(){
