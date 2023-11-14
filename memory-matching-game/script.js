@@ -24,16 +24,31 @@ let tries = 0;
 let clickable = true;
 let seconds = 0;
 
+document.getElementById("win-div").style.visibility = "hidden";
+document.getElementById("win-title").style.visibility = "hidden";
+document.getElementById("win-text").style.visibility = "hidden";
+document.getElementById("timer").style.visibility = "hidden";
+document.getElementById("game-div").style.visibility = "hidden";
+document.getElementById("title").style.visibility = "hidden";
+document.getElementById("moves").style.visibility = "hidden";
+document.getElementById("completedSets").style.visibility = "hidden";
+document.getElementById("game-table").style.visibility = "hidden";
+
 document
   .getElementById("explanation-button")
   .addEventListener("click", startGame);
 
 function startGame() {
   document.getElementById("explanation").style.visibility = "hidden";
-  document.getElementById("explanation-button").style.visibility = "hidden";
-  document.getElementById("timer").removeAttribute("hidden");
-  document.getElementById("game-div").removeAttribute("hidden");
-  document.getElementById("title").removeAttribute("hidden");
+  document.getElementById("timer").style.visibility = "visible";
+  document.getElementById("game-div").style.visibility = "visible";
+  document.getElementById("title").style.visibility = "visible";
+  document.getElementById("moves").style.visibility = "visible";
+  document.getElementById("completedSets").style.visibility = "visible";
+  document.getElementById("game-table").style.visibility = "visible";
+  document
+    .getElementById("game-table")
+    .addEventListener("click", betterListener);
   startTimer();
 }
 
@@ -80,11 +95,14 @@ const betterListener = (event) => {
     let openCardB = document.getElementById(openCards[1]);
 
     tries++;
+    document.getElementById("moves").innerHTML = tries + " moves";
 
     if (openCardA.textContent === openCardB.textContent) {
       openCardA.setAttribute("completed", "");
       openCardB.setAttribute("completed", "");
       completedSets++;
+      document.getElementById("completedSets").innerHTML =
+        completedSets + " completed Sets";
     } else {
       clickable = false;
       console.log(clickable);
@@ -102,18 +120,34 @@ const betterListener = (event) => {
   console.log({ completedSets, tries });
 
   if (completedSets > 7) {
-    alert(`You completed the game in ${tries} tries and in ${seconds} seconds`);
     // TODO add reset function
+    document.getElementById("win-div").style.visibility = "visible";
+    document.getElementById("win-title").style.visibility = "visible";
+    document.getElementById("win-text").style.visibility = "visible";
+    document.getElementById("game-table").style.visibility = "hidden";
+    document.getElementById("title").style.visibility = "hidden";
+    document.getElementById("timer").style.visibility = "hidden";
+    document.getElementById("moves").style.visibility = "hidden";
+    document.getElementById("completedSets").style.visibility = "hidden";
+    document.getElementById("restart-button").style.display = "inline-flex";
+    document.getElementById("win-text").innerHTML =
+      "You completed the game succesfully in " +
+      seconds +
+      " seconds and " +
+      tries +
+      " moves";
   }
 };
 
-document.getElementById("game-table").addEventListener("click", betterListener);
+function restartGame() {
+  location.reload();
+}
 
 // Get the current time in milliseconds when the page is loaded
 function startTimer() {
-  let startTime = new Date().getTime();
+  startTime = new Date().getTime();
   // Pass the startTime variable to the setInterval function
-  setInterval(showSeconds, 1000, startTime);
+  refreshIntervalId = setInterval(showSeconds, 1000, startTime);
 }
 
 // Define a function that updates the display every second
@@ -126,4 +160,5 @@ function showSeconds(startTime) {
   seconds = Math.floor(diff / 1000);
   // Display the seconds in an element with id "timer"
   document.getElementById("timer").innerHTML = seconds + " seconds";
+  console.log(seconds, diff, currentTime, startTime);
 }

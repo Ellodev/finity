@@ -8,7 +8,7 @@
   <body>
     <a href="/index.html" class="back-to-home">&lt;- go back</a>
     <div class="container">
-      <h1 class="title" id="title" hidden>Memory Matching Game</h1>
+      <h1 class="title" id="title">Memory Matching Game</h1>
       <div class="explanation" id="explanation">
         <h3 class="explanation-title">A Quick Explanation</h3>
         <p class="explanation-text">
@@ -21,8 +21,21 @@
           Ok, thanks!
         </button>
       </div>
-      <p id="timer" hidden></p>
-      <div class="game-div" id="game-div" hidden>
+      <div class="explanation" id="win-div">
+        <h3 class="explanation-title" id="win-title">Congrats!</h3>
+        <p class="explanation-text" id="win-text"></p>
+        <button
+          class="restart-button"
+          id="restart-button"
+          onclick="restartGame()"
+        >
+          Restart Game
+        </button>
+      </div>
+      <div id="game-div">
+        <p id="timer">0 seconds</p>
+        <p id="moves">0 moves</p>
+        <p id="completedSets">0 completed Sets</p>
         <table id="game-table">
           <tr>
             <td id="0"></td>
