@@ -78,12 +78,13 @@ function sleep(ms) {
 const betterListener = (event) => {
   let target = event.target;
 
-  if (target == "") return;
+  if (target.id == "") return;
 
-  if (target == null) return;
+  if (target.id == null) return;
+
+  if (target.id == "game-table") return;
 
   if (clickable === false) return;
-  console.log(clickable);
 
   if (target.hasAttribute("completed")) return;
 
@@ -107,19 +108,15 @@ const betterListener = (event) => {
         completedSets + " completed Sets";
     } else {
       clickable = false;
-      console.log(clickable);
       sleep(1000).then(() => {
         openCardA.textContent = "";
         openCardB.textContent = "";
         clickable = true;
-        console.log(clickable);
       });
     }
 
     openCards = [];
   }
-
-  console.log({ completedSets, tries });
 
   if (completedSets > 7) {
     // TODO add reset function
@@ -162,5 +159,4 @@ function showSeconds(startTime) {
   seconds = Math.floor(diff / 1000);
   // Display the seconds in an element with id "timer"
   document.getElementById("timer").innerHTML = seconds + " seconds";
-  console.log(seconds, diff, currentTime, startTime);
 }
