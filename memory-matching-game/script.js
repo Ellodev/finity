@@ -48,7 +48,7 @@ function startGame() {
   document.getElementById("game-table").style.visibility = "visible";
   document
     .getElementById("game-table")
-    .addEventListener("click", betterListener);
+    .addEventListener("mousedown", betterListener);
   startTimer();
 }
 
@@ -78,7 +78,9 @@ function sleep(ms) {
 const betterListener = (event) => {
   let target = event.target;
 
-  if (target === "") return;
+  if (target == "") return;
+
+  if (target == null) return;
 
   if (clickable === false) return;
   console.log(clickable);
