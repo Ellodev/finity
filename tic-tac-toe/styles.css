@@ -148,7 +148,7 @@ body {
 }
 
 .winning-message button:hover {
-  background-color:  rgb(175, 142, 142);
+  background-color:  rgb(0, 0, 0);
   color: white;
   border-color: white;
 }
