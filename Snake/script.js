@@ -106,7 +106,7 @@ function clearScreen(){
 
 function drawSnake(){
    
-    ctx.fillStyle = 'green';
+    ctx.fillStyle = 'blue';
     for(let i =0; i < snakeParts.length; i++){
         let part = snakeParts[i];
         ctx.fillRect(part.x * tileCount, part.y * tileCount, tileSize, tileSize);
@@ -117,7 +117,7 @@ function drawSnake(){
         snakeParts.shift();
     }
 
-    ctx.fillStyle = 'darkgreen';
+    ctx.fillStyle = 'darkblue';
     ctx.fillRect(headX * tileCount, headY * tileCount, tileSize,tileSize);
 
 
