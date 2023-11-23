@@ -26,6 +26,8 @@ let yVelocity = 0;
 
 let score = 0;
 
+let gameRunning = false;
+
 const gulpSound = new Audio("Gulp.mp3");
 
 //game loop
@@ -180,6 +182,16 @@ function keyDown(event) {
     }
 }
 
+document.getElementById("explanation-button").addEventListener('click', onExplanationPress());
 
+function onExplanationPress() {
+    gameRunning = true;
+}
 
-drawGame();
+runningGame()
+
+function runningGame() {
+    if (gameRunning = false) return;
+    console.log("reached Gamerunning")
+    drawGame();
+}
