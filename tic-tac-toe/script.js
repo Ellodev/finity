@@ -36,6 +36,7 @@ function startGame() {
   winningMessageElement.classList.remove('show')
 }
 
+
 function handleClick(e) {
   const cell = e.target
   const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
