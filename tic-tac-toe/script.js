@@ -14,14 +14,17 @@ const cellElements = document.querySelectorAll('[data-cell]')
 const board = document.getElementById('board')
 const winningMessageElement = document.getElementById('winningMessage')
 const restartButton = document.getElementById('restartButton')
+const startButton = document.getElementById("explanation-button")
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
 let circleTurn
 
-startGame()
+restartButton.addEventListener('click', startGame);
+startButton.addEventListener('click', startGame);
 
-restartButton.addEventListener('click', startGame)
+document.getElementById("explanation").style.visibility = "visible";
 
 function startGame() {
+  document.getElementById("explanation").style.visibility = "hidden";
   circleTurn = false
   cellElements.forEach(cell => {
     cell.classList.remove(X_CLASS)
