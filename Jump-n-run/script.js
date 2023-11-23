@@ -1,9 +1,35 @@
-// Code mostly/partially from https://www.youtube.com/watch?v=bG2BmmYr9NQ
+var canvas = document.getElementById("canv");
+var c = canvas.getContext("2d");
 
-let character = document.getElementById("character");
-let block = document.getElementById("block");
+class Player {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.w = 40;
+        this.h = 80;
+    }
+    show() {
+        c.fillStyle = 'red';
+        c.fillRect(this.x, this.y, this.w, this.h);
+    }
+}
 
-function jump(){
-    character.classList.add("animate");
-    console.log("you have reached function jump")
+var p;
+
+window.onload = function() {
+    StaticRange();
+    setInterval(update, 10);
+}
+
+function start() {
+    p = new Player(400, 400);
+}
+
+function update() {
+    canvas.width=canvas.width;
+    //ground
+    c.fillStyle = 'green';
+    c.fillRect
+    //player
+    p.show();
 }
