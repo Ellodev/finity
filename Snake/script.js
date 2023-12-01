@@ -1,6 +1,12 @@
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 
+let gameRunning = false;
+
+document.getElementById("explanation-button").addEventListener("click", () => {
+    onExplanationPress();
+});
+
 class SnakePart{
     constructor(x, y){
         this.x = x;
@@ -182,4 +188,14 @@ function keyDown(event) {
 
 
 
-drawGame();
+function onExplanationPress() {
+    gameRunning = true;
+    document.getElementById("explanation").style.visibility = "hidden";
+    runningGame();
+}
+
+function runningGame() {
+    if (gameRunning === true) {
+        drawGame();
+    } else return;
+}

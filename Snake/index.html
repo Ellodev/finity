@@ -10,7 +10,16 @@
 <body>
     <a href="/index.html" class="back-to-home">&lt;- go back</a>
     <h1>Snake</h1>
-    <canvas id="game" width="320" height="320">
+    <div class="explanation" id="explanation">
+        <h3 class="explanation-title">A Quick Explanation</h3>
+        <p class="explanation-text">
+          You are the Snake(blue) and the Apples(red). As the Snake consumes apples,  it will get longer. When the Snake collides with the boarders or itself, you will die. You Aim for the highest score/snake. You can controll your Snake with the "arrow keys" (↑,←,↓,→) or with "WASD" (W,A,S,D). 
+        </p>
+        <button class="explanation-button" id="explanation-button">
+          Ok, thanks!
+        </button>
+    </div>
+    <canvas id="game" width="320" height="320"></canvas>
     <script src="script.js"></script>
 </body>
 </html>
