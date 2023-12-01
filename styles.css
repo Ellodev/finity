@@ -38,3 +38,11 @@ a {
   margin-bottom: 5%;
   text-decoration: none;
 }
+.back-to-home {
+  color: white;
+  position: fixed;
+  top: 1%;
+  left: 2%;
+  text-decoration: none;
+  font-size: 2vw;
+}
