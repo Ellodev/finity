@@ -1,6 +1,12 @@
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 
+let gameRunning = false;
+
+document.getElementById("explanation-button").addEventListener("click", () => {
+    onExplanationPress();
+});
+
 class SnakePart{
     constructor(x, y){
         this.x = x;
@@ -25,8 +31,6 @@ let xVelocity = 0;
 let yVelocity = 0;
 
 let score = 0;
-
-let gameRunning = false;
 
 const gulpSound = new Audio("Gulp.mp3");
 
@@ -182,16 +186,16 @@ function keyDown(event) {
     }
 }
 
-document.getElementById("explanation-button").addEventListener('click', onExplanationPress());
+
 
 function onExplanationPress() {
     gameRunning = true;
+    document.getElementById("explanation").style.visibility = "hidden";
+    runningGame();
 }
 
-runningGame()
-
 function runningGame() {
-    if (gameRunning = false) return;
-    console.log("reached Gamerunning")
-    drawGame();
+    if (gameRunning === true) {
+        drawGame();
+    } else return;
 }
