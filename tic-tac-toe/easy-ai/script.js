@@ -48,7 +48,7 @@ function handleClick(e) {
   } else {
     swapTurns();
     setBoardHoverClass();
-    setTimeout(makeAIMove, 500);
+    setTimeout(makeAIMove, 250);
   }
 }
 
