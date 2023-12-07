@@ -95,6 +95,8 @@ function isGameOver(){
         ctx.fillStyle = gradient;
 
         ctx.fillText("Game Over!", canvas.width / 9, canvas.height / 2);
+
+        setTimeout(location.reload(), 1000)
     }
     return gameOver;
 }
