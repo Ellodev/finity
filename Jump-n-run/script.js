@@ -8,7 +8,7 @@ class Player {
         this.w = 40;
         this.h = 80;       
         this.ySpeed = 3;
-        this.xSpeed = 0;
+        this.xSpeed = 3;
     }
     show() {
         c.fillStyle = 'red';
@@ -47,7 +47,7 @@ class Rock {
 }
 
 var p;
-var gravity = 0.1
+var gravity = 0.13
 
 var canJump = true;
 
@@ -68,10 +68,10 @@ function start() {
     for (let i = 0; i < 100; i++) {
         var r = new Rock(rockX, 710);
         rocks.push(r);
-        rockX += Math.floor(Math.random() * 500) + 300;
+        rockX += Math.floor(Math.random() * 500) + 500;
     }
     
-    p.xSpeed = 5;
+    p.xSpeed = 3;
 }
 
 function update() {
