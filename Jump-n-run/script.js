@@ -93,7 +93,7 @@ function update() {
 }
 
 function changeSpeed() {
-    p.xSpeed += 0.1;
+    p.xSpeed += 0.07;
 }
 
 function increaseScore() {
