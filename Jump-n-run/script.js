@@ -71,7 +71,7 @@ function start() {
         rockX += Math.floor(Math.random() * 500) + 500;
     }
     
-    p.xSpeed = 3;
+    p.xSpeed = 5;
 }
 
 function update() {
@@ -93,7 +93,7 @@ function update() {
 }
 
 function changeSpeed() {
-    p.xSpeed += 0.07;
+    p.xSpeed += 0.0001;
 }
 
 function increaseScore() {
