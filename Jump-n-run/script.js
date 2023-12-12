@@ -104,7 +104,7 @@ setInterval(changeSpeed, 500);
 setInterval(increaseScore, 500);
 
 function keyDown(e) {
-    if (e.keyCode === 38 && canJump) {
+    if ((e.keyCode === 38 || e.code === 'Space') && canJump) {
         p.ySpeed = -4;
     }
 }
