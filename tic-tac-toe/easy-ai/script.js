@@ -14,14 +14,17 @@ const cellElements = document.querySelectorAll('[data-cell]')
 const board = document.getElementById('board')
 const winningMessageElement = document.getElementById('winningMessage')
 const restartButton = document.getElementById('restartButton')
+const startButton = document.getElementById("explanation-button")
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
 let circleTurn
 
-startGame()
+restartButton.addEventListener('click', startGame);
+startButton.addEventListener('click', startGame);
 
-restartButton.addEventListener('click', startGame)
+document.getElementById("explanation").style.visibility = "visible";
 
 function startGame() {
+  document.getElementById("explanation").style.visibility = "hidden";
   circleTurn = false
   cellElements.forEach(cell => {
     cell.classList.remove(X_CLASS)
@@ -34,16 +37,18 @@ function startGame() {
 }
 
 function handleClick(e) {
-  const cell = e.target
-  const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
-  placeMark(cell, currentClass)
+  const cell = e.target;
+  const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
+  placeMark(cell, currentClass);
+
   if (checkWin(currentClass)) {
-    endGame(false)
+    endGame(false); // Player wins
   } else if (isDraw()) {
-    endGame(true)
+    endGame(true);  // Draw
   } else {
-    swapTurns()
-    setBoardHoverClass()
+    swapTurns();
+    setBoardHoverClass();
+    setTimeout(makeAIMove, 250);
   }
 }
 
@@ -51,7 +56,7 @@ function endGame(draw) {
   if (draw) {
     winningMessageTextElement.innerText = 'Draw!'
   } else {
-    winningMessageTextElement.innerText = `${circleTurn ? "O" : "X"} Wins!`
+    winningMessageTextElement.innerText = `${circleTurn ? "⚪️" : "❌"} Wins!`
   }
   winningMessageElement.classList.add('show')
 }
@@ -63,11 +68,11 @@ function isDraw() {
 }
 
 function placeMark(cell, currentClass) {
-  cell.classList.add(currentClass)
+  cell.classList.add(currentClass);
 }
 
 function swapTurns() {
-  circleTurn = !circleTurn
+  circleTurn = !circleTurn;
 }
 
 function setBoardHoverClass() {
@@ -86,4 +91,28 @@ function checkWin(currentClass) {
       return cellElements[index].classList.contains(currentClass)
     })
   })
+}
+
+// Function to make a move for the AI opponent
+function makeAIMove() {
+  const availableCells = Array.from(cellElements).filter(cell => !cell.classList.contains(X_CLASS) && !cell.classList.contains(CIRCLE_CLASS));
+
+  if (availableCells.length > 0) {
+    const randomIndex = Math.floor(Math.random() * availableCells.length);
+    const randomCell = availableCells[randomIndex];
+
+    const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
+    placeMark(randomCell, currentClass);
+    randomCell.removeEventListener('click', handleClick);
+
+    // Check for a win or draw after the AI move
+    if (checkWin(currentClass)) {
+      endGame(false); // AI wins
+    } else if (isDraw()) {
+      endGame(true);  // Draw
+    } else {
+      swapTurns();    // Switch turns to the human player
+      setBoardHoverClass();
+    }
+  }
 }

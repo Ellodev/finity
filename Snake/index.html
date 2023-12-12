@@ -10,7 +10,15 @@
 <body>
     <a href="/index.html" class="back-to-home">&lt;- go back</a>
     <h1>Snake</h1>
-    <canvas id="game" width="320" height="320">
+    <div class="explanation" id="explanation">
+        <h3 class="explanation-title">Game Rules</h3>
+        <p class="explanation-text">
+          Control the blue snake either with the cursor or WASD keys to eat as many red apples as possible. The snake will grow in length by one segment each time an apple has been eaten.  The game ends once the snake either touches the border or the snake’s head makes contact with a part of its own body.        </p>
+        <button class="explanation-button" id="explanation-button">
+          Ok, thanks!
+        </button>
+    </div>
+    <canvas id="game" width="320" height="320"></canvas>
     <script src="script.js"></script>
 </body>
 </html>
