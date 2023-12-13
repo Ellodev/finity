@@ -57,6 +57,8 @@ var rockX = 800;
 
 var score = 0;
 
+const jumpSound = new Audio("jump.mp3");
+
 window.onload = function() {
     start();
     setInterval(update, 10);
