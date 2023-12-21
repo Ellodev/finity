@@ -9,4 +9,4 @@ A website with simple games for a school project. The name is called finity beca
 - Javascript
 - Html
 - Css
-### For all the games except the Memory Game Matching Game we used a tutorial.
+### For all the games except the Memory Game we used a tutorial.
